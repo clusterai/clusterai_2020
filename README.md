@@ -1,11 +1,47 @@
 # clusterai_2020
 Repository for the UTN BA Data Science Course 2020 
+## Installing dependancies / Instalando dependencias
+##### English
+Before we start working we need to install all dependancies for this project.
+
+Open the command line or anaconda prompt and run:
+
+```bash
+pip install -r requirements.txt
+```
+Remember to ALWAYS do this before you start working on the repository
+
+##### Español
+Antes de arrancar a trabajar en este proyecto necesitamos instalar las dependencias de este proyecto.
+
+Abri la linea de comandos o el anaconda prompt y corre
+
+```bash
+pip install -r requirements.txt
+```
+
+Recorda hacer esto SIEMPRE antes de empezar a trabajar con el repositorio
+
 ## Working with datasets / Trabajando con datasets
 ### Use a dataset / Usar un dataset
 ##### English
 The idea is to let the users import the dataset as a module within the jupyter notebook or python script.
+
+First of all we need to add the datasets path to our PYTHONPATH in order to be able to import the module
 ```python
-import datasets.<Nombre Dataset>
+# Use this from inside a jupyter notebook (file.ipynb)
+import pathlib
+import sys
+sys.path.append(str([path for path in list(pathlib.Path().resolve().parents) if str(path).endswith('clusterai_2020')][0].joinpath('datasets')))
+
+# Use this for a python script (file.py)
+import pathlib
+import sys
+sys.path.append(str([path for path in list(pathlib.Path(__file__).resolve().parents) if str(path).endswith('clusterai_2020')][0].joinpath('datasets')))
+```
+Afterwards we will be able to import the datasets module directly
+```python
+import datasets.<Dataset Name>
 ```
 
 Each dataset module will have a download function associaten which takes the source and destination as an input, returning the path where it left the downloaded file.
@@ -62,6 +98,21 @@ It's recomended to use the first approach due to it's legibility and simplicity 
 
 ##### Español
 La idea es permitirle a los usuarios importar el dataset como un modulo dentro del juyter notebook o el script de python.
+
+Antes que nada, tenemso que agregar la carpeta datasets a nuestro PYTHONPATH para poder importar el modulo
+```python
+# Correr esto si estas dentro de un jupyter notebook (file.ipynb)
+import pathlib
+import sys
+sys.path.append(str([path for path in list(pathlib.Path().resolve().parents) if str(path).endswith('clusterai_2020')][0].joinpath('datasets')))
+
+# Correr esto si estas dentro de un script python (file.py)
+import pathlib
+import sys
+sys.path.append(str([path for path in list(pathlib.Path(__file__).resolve().parents) if str(path).endswith('clusterai_2020')][0].joinpath('datasets')))
+```
+Luego podremos importar el modulo directamente
+
 ```python
 import datasets.<Nombre Dataset>
 ```
