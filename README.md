@@ -2,7 +2,7 @@
 Repository for the UTN BA Data Science Course 2020 
 ## Working with datasets / Trabajando con datasets
 ### Use a dataset / Usar un dataset
-##### Eng
+##### English
 The idea is to let the users import the dataset as a module within the jupyter notebook or python script.
 ```python
 import datasets.<Nombre Dataset>
@@ -60,7 +60,7 @@ specificDataset = myDatasetsDict.get("datasetName") # datasetName is one of the 
 ```
 It's recomended to use the first approach due to it's legibility and simplicity in usage per dataset
 
-##### Esp
+##### Español
 La idea es permitirle a los usuarios importar el dataset como un modulo dentro del juyter notebook o el script de python.
 ```python
 import datasets.<Nombre Dataset>
@@ -120,11 +120,11 @@ Se recomienda utilizar el primer enfoque por un tema de legibilidad del codigo y
 
 ### Uploading a dataset / Subir un dataset
 #### Subir un dataset nuevo
-##### Eng
+##### English
 The structure 
-##### Esp
+##### Español
 
 #### Subir un recurso a dataset existente
-##### Eng
+##### English
 The structure 
-##### Esp
+##### Español
