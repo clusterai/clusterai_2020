@@ -119,12 +119,33 @@ specificDataset = myDatasetsDict.get("datasetName") # datasetName es una de las 
 Se recomienda utilizar el primer enfoque por un tema de legibilidad del codigo y simplicidad en el uso de cada dataset
 
 ### Uploading a dataset / Subir un dataset
-#### Subir un dataset nuevo
+#### Upload a new dataset / Subir un dataset nuevo
 ##### English
-The structure 
-##### Español
+To upload a new dataset you will need to create a folder for the module, and inside it you will need to put an empty __init__.py an the module.py
+```
+datasets/
+    newDatasetModuleFolder/
+        __init__.py
+        newDatasetModule.py
+```
+newDatasetModule.py file will contain the code that applies the download function. 
 
-#### Subir un recurso a dataset existente
-##### English
-The structure 
+Minimum require to pass this would be to have it download it from cluster ai and to run locally
+
 ##### Español
+Para cargar un nuevo modulo de datasets se tiene que crear una carpeta con el nuevo modulo, y dentro de ella tiene que estar ujn archivo vacio de __init__.py y un archivo que sea el modulo.py
+```
+datasets/
+    newDatasetModuleFolder/
+        __init__.py
+        newDatasetModule.py
+```
+El archivo newDatasetModule.py file va a tener la logica para aplicar la funcion descarga. 
+
+El requerimiento minimo es que pueda descargar del servidor de cluster ai y que pueda correr localmente como destino
+
+#### Upload a new resource to an existing dataset / Subir un recurso a dataset existente
+##### English
+TBD
+##### Español
+TBD
