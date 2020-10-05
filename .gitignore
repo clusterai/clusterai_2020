@@ -2,3 +2,4 @@
 .ipynb_checkpoints
 clases/clase_prueba/*
 *.cpython*
+*dwnl/
