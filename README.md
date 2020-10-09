@@ -168,21 +168,21 @@ Aca hay un ejemplo de complejidad cuando un modulo de datasets posee mas de un a
 
 ```python
 import pandas as pd
-import datasets.acero
+from datasets import acero
 import pathlib
 
 # Veo posibles datasets en el modulo:
-print(datasets.acero.resources())
+print(acero.resources())
 
 # Primer enfoque - descargo un dataset a la vez
 ## Descargo recurso especificoe -> myDatasetPath contiene un str con el path
-myDatasetPath = datasets.acero.download(resource=<Dataset Name>,source='origin',destination='local')
+myDatasetPath = acero.download(resource=<Dataset Name>,source='origin',destination='local')
 
 myDataset = pd.read_csv(myDatasetPath)
 
 # Segundo enfoque - descargar todos los datasets de una - No soportado aun
 ## Descargo todos los recursos -> myDatasetPath contiene una List[str] (lista de strings) con cada path
-myDatasetPaths = datasets.acero.download(source='origin',destination='local')
+myDatasetPaths = acero.download(source='origin',destination='local')
 
 myDatasetsDict = {}
 for datasetPath in myDatasetPaths:
@@ -198,33 +198,54 @@ specificDataset = myDatasetsDict.get("datasetName") # datasetName es una de las 
 Se recomienda utilizar el primer enfoque por un tema de legibilidad del codigo y simplicidad en el uso de cada dataset
 
 ### Uploading a dataset / Subir un dataset
-#### Upload a new dataset / Subir un dataset nuevo
 ##### English
-To upload a new dataset you will need to create a folder for the module, and inside it you will need to put an empty __init__.py an the module.py
+To upload a new dataset within a group, you will need to add the resource in:
 ```
-datasets/
-    newDatasetModuleFolder/
-        __init__.py
-        newDatasetModule.py
+datasets/__init__.py
 ```
-newDatasetModule.py file will contain the code that applies the download function. 
+As of 2020-10-09 the resources are specified in a list of dicts format following the convention below: 
+```python
+resources_config=[
+    {
+        "Module":"ModuleName", # First folder under /downloads/
+        "Datasets":[
+            {
+                "name":"DatasetFileName.ext", # Dataset file to be downloaded
+                "url":[
+                    ("origin","URL to do GET"), # tuple with key method and url to fetch it 
+                    ("AnotherOrigin","URL to do GET")
+                    ]
+            }
+        ]
+    }
+]
+```
+This needs to be replaced by a sqlite or DB solution in the future
 
 Minimum require to pass this would be to have it download it from cluster ai and to run locally
 
 ##### Español
-Para cargar un nuevo modulo de datasets se tiene que crear una carpeta con el nuevo modulo, y dentro de ella tiene que estar ujn archivo vacio de __init__.py y un archivo que sea el modulo.py
+Para subir un nuevo dataset a un grupo, hay que agregar el recurso en:
 ```
-datasets/
-    newDatasetModuleFolder/
-        __init__.py
-        newDatasetModule.py
+datasets/__init__.py
 ```
-El archivo newDatasetModule.py file va a tener la logica para aplicar la funcion descarga. 
+A la fecha de 2020-10-09 los recusos se espicifican en una lista de diccionarios con la siguiente convencion: 
+```python
+resources_config=[
+    {
+        "Module":"ModuleName", # Primer carpeta debajo de /downloads/
+        "Datasets":[
+            {
+                "name":"DatasetFileName.ext", # Dataset a ser descargado
+                "url":[
+                    ("origin","URL to do GET"), # tuple con llave como metodo y la url par descargar archivo 
+                    ("AnotherOrigin","URL to do GET")
+                    ]
+            }
+        ]
+    }
+]
+```
+Esta convencion debe ser cambiada por un sqlite o solucion de base de datos en el futuro
 
-El requerimiento minimo es que pueda descargar del servidor de cluster ai y que pueda correr localmente como destino
-
-#### Upload a new resource to an existing dataset / Subir un recurso a dataset existente
-##### English
-TBD
-##### Español
-TBD
+Los requisitos minimos para descarga tiene que ser tener como fuente origen y clusterAi para que corran localmente
