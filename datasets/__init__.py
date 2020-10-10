@@ -311,19 +311,19 @@ acero_config = [config for config in resources_config if config.get("Module")=="
 acero = DatasetModule("acero",acero_config.get("Datasets"))
 
 gplaystore_config = [config for config in resources_config if config.get("Module")=="google-playstore"][0]
-google-playstore = DatasetModule("google-playstore",gplaystore_config.get("Datasets"))
+google_playstore = DatasetModule("google-playstore",gplaystore_config.get("Datasets"))
 
 airbnb_config = [config for config in resources_config if config.get("Module")=="airbnb"][0]
-airbnb = DatasetModule("airbnb",gplaystore_config.get("Datasets"))
+airbnb = DatasetModule("airbnb",airbnb_config.get("Datasets"))
 
-flujo-vehicular_config = [config for config in resources_config if config.get("Module")=="flujo-vehicular"][0]
-flujo-vehicular = DatasetModule("flujo-vehicular",gplaystore_config.get("Datasets"))
+flujo_vehicular_config = [config for config in resources_config if config.get("Module")=="flujo-vehicular"][0]
+flujo_vehicular = DatasetModule("flujo-vehicular",flujo_vehicular_config.get("Datasets"))
 
 subtes_config = [config for config in resources_config if config.get("Module")=="subtes"][0]
 subtes = DatasetModule("subtes",subtes_config.get("Datasets"))
 
-breast-wisconsin_config = [config for config in resources_config if config.get("Module")=="breast-wisconsin"][0]
-breast-wisconsin = DatasetModule("breast-wisconsin",gplaystore_config.get("Datasets"))
+breast_wisconsin_config = [config for config in resources_config if config.get("Module")=="breast-wisconsin"][0]
+breast_wisconsin = DatasetModule("breast-wisconsin",breast_wisconsin_config.get("Datasets"))
 
 diabetes_config = [config for config in resources_config if config.get("Module")=="diabetes"][0]
-diabetes = DatasetModule("diabetes",gplaystore_config.get("Datasets"))
+diabetes = DatasetModule("diabetes",diabetes_config.get("Datasets"))
