@@ -1,5 +1,7 @@
-# clusterai_2020
-Repository for the UTN BA Data Science Course 2020 
+# clusterai_2020 - Public Money Public Code.
+
+This is the repository for the Universidad Tecnologica Nacional BA Data Science Course 2020.  You are free to use this material for educational purposes, in that case please cite us.
+
 ## Installing dependancies / Instalando dependencias
 ##### English
 Before we start working we need to install all dependancies for this project.
