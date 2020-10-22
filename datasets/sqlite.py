@@ -23,14 +23,62 @@ class DataRegistry():
             c.execute(create_statement)
         except Error as e:
             print(e)
-    def upload_dataset(self,dataset_info):
-        pass
 
+    def upload_dataset(self,dataset_info):
+        """
+        Create a new project into the projects table
+        :param conn:
+        :param project:
+        :return: project id
+        """
+        sql = ''' INSERT INTO datasets(module,source,filename,url)
+                VALUES(?,?,?,?) '''
+        cur = self.conn.cursor()
+        cur.execute(sql, dataset_info)
+        self.conn.commit()
+        return cur.lastrowid
+
+    def update_dataset(self,id,field,value):
+        """
+        update priority, begin_date, and end date of a task
+        :param conn:
+        :param task:
+        :return: project id
+        """ 
+        sql = ''' UPDATE datasets
+                SET module = ? ,
+                    source = ? ,
+                    filename = ?,
+                    url = ?
+                WHERE id = ?'''
+        cur = self.conn.cursor()
+        cur.execute(sql, task)
+        self.conn.commit()
     def list_datasets(self):
-        pass
+        """
+        Query all rows in the tasks table
+        :param conn: the Connection object
+        :return:
+        """
+        cur = self.conn.cursor()
+        cur.execute("SELECT * FROM datasets")
+
+        rows = cur.fetchall()
+
+        for row in rows:
+            print(row)
 
     def delete_dataset(self,id):
-        pass
+        """
+        Delete a task by task id
+        :param conn:  Connection to the SQLite database
+        :param id: id of the task
+        :return:
+        """
+        sql = 'DELETE FROM datasets WHERE id=?'
+        cur = self.conn.cursor()
+        cur.execute(sql, (id,))
+        conn.commit()
 
 if __name__ == '__main__':
     db=DataRegistry(pathlib.Path()/"datasets"/"datasets_registry.db")
