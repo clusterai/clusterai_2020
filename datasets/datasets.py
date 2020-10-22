@@ -28,7 +28,7 @@ class DatasetModule():
         sources = [conf.get("url") for conf in self.config if conf.get("name")==resource][0]
         return [source[0] for source in sources]
 
-    def download(self,resource: str,source: str = 'origin',destination: str = 'local') -> str:
+    def download(self,resource: str,source: str = 'gdrive',destination: str = 'local') -> str:
         """
         English
         \nresource: str that indicates specific dataset within dataset group.
