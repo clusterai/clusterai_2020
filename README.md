@@ -16,9 +16,9 @@ Datasets disponibles desde el siguiente link https://drive.google.com/drive/fold
 - clase 07: aprendizaje no supervisado, clustering
 - clase 08: ejercicio integrador aprendizaje supervisado
 - clase 09: introduccion al procesamiento del lenguaje natural
-- clase 10: redes neuronales
-- clase 10: redes neuronales
-- clase 11: redes neuronales
-- clase 12: redes neuronales
+- clase 10: neural nets
+- clase 10: neural nets
+- clase 11: neural nets
+- clase 12: neural nets
 
 
