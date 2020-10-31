@@ -4,7 +4,14 @@ from sqlite3 import Error
 
 class DataRegistry():
     def __init__(self,db_file):
-        """ create a database connection to a SQLite database """
+        """ 
+        English:
+        \nCreates a database connection to a SQLite database 
+        \ndb_file: path to a .db file where the data will be stored, if file does not exists it will create it
+        \nEspañol
+        \nCrea una conección a la base de datos SQLite  
+        \ndb_file: ruta a archivo .db donde la data va a ser guardada, si el archivo no existe lo crea en dicha ruta
+        """
         self.file=db_file
         self.conn = None
         try:
@@ -12,15 +19,18 @@ class DataRegistry():
         except Error as e:
             print(e)
 
-    def create_table(self,create_statement):
-        """ create a table from the create_table_sql statement
-        :param conn: Connection object
-        :param create_table_sql: a CREATE TABLE statement
-        :return:
+    def run_statement(self,statement):
+        """ 
+        English:
+        \nRuns a SQL statement against the database
+        \nstatement: string with SQL statement
+        \nEspañol:
+        \nEjecuta codigo SQL en la base de datos
+        \nstatement: string con codigo SQL
         """
         try:
             c = self.conn.cursor()
-            c.execute(create_statement)
+            c.execute(statement)
         except Error as e:
             print(e)
 
@@ -31,7 +41,8 @@ class DataRegistry():
         :param project:
         :return: project id
         """
-        sql = ''' INSERT INTO datasets(module,source,filename,url)
+        sql = ''' 
+        INSERT INTO datasets(module,source,filename,url)
                 VALUES(?,?,?,?) '''
         cur = self.conn.cursor()
         cur.execute(sql, dataset_info)
@@ -45,15 +56,18 @@ class DataRegistry():
         :param task:
         :return: project id
         """ 
-        sql = ''' UPDATE datasets
+        sql = ''' 
+                UPDATE datasets
                 SET module = ? ,
                     source = ? ,
                     filename = ?,
                     url = ?
-                WHERE id = ?'''
+                WHERE id = ?
+                '''
         cur = self.conn.cursor()
         cur.execute(sql, task)
         self.conn.commit()
+
     def list_datasets(self):
         """
         Query all rows in the tasks table
@@ -82,7 +96,7 @@ class DataRegistry():
 
 if __name__ == '__main__':
     db=DataRegistry(pathlib.Path()/"datasets"/"datasets_registry.db")
-    db.create_table("""
+    db.run_statement("""
     CREATE TABLE IF NOT EXISTS datasets (
         id integer PRIMARY KEY,
         module text NOT NULL,
