@@ -2,6 +2,9 @@
 
 This is the repository for the Universidad Tecnologica Nacional BA Data Science Course 2020.  You are free to use this material for educational purposes, in that case please cite us.
 
+# Recorded lectures 2020
+https://drive.google.com/drive/folders/1BUo4bO5ESTDzmVtH23bMltUq_vCMWF1T?usp=sharing
+
 # Datasets
 Datasets disponibles desde el siguiente link https://drive.google.com/drive/folders/1FeffncGRSUbig5iJal8jLX_SoDXEwevq?usp=sharing
 
